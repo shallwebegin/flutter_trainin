@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trainin/101/button_learn.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_trainin/demos/note_demos_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: false),
-      home: ButtonLearn(),
+      theme: ThemeData.dark().copyWith(
+        appBarTheme: const AppBarTheme(
+            centerTitle: true,
+            systemOverlayStyle: SystemUiOverlayStyle.light,
+            backgroundColor: Colors.transparent,
+            elevation: 0),
+      ),
+      home: NoteDemos(),
     );
   }
 }

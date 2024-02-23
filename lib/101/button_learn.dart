@@ -33,6 +33,8 @@ class ButtonLearn extends StatelessWidget {
             child: const Icon(Icons.add),
           ),
           OutlinedButton(
+            style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.red, shape: CircleBorder()),
             onPressed: () {},
             child: const Text('ABABA'),
           ),
