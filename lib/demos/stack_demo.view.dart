@@ -4,6 +4,7 @@ import 'package:flutter_trainin/core/random_image.dart';
 class StackViewDemo extends StatelessWidget {
   const StackViewDemo({super.key});
   final _cardHeight = 100.0;
+  final _cardWidth = 200.0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +24,24 @@ class StackViewDemo extends StatelessWidget {
                 Positioned(
                   height: _cardHeight,
                   bottom: 0,
-                  width: 200,
-                  child: Card(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(),
-                  ),
+                  width: _cardWidth,
+                  child: _cardCustom(),
                 ),
               ],
             ),
           ),
-          Spacer(
+          const Spacer(
             flex: 6,
           )
         ],
       ),
+    );
+  }
+
+  Card _cardCustom() {
+    return Card(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(),
     );
   }
 }
