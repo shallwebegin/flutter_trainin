@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_trainin/101/list_view_builder.dart';
+import 'package:flutter_trainin/101/list_view_learn.dart';
+import 'package:flutter_trainin/101/navigation_learn.dart';
 import 'package:flutter_trainin/101/page_view_learn.dart';
 import 'package:flutter_trainin/101/statefull_life_cycle_learn.dart';
+import 'package:flutter_trainin/101/text_field_learn.dart';
+import 'package:flutter_trainin/demos/color_demos_view.dart';
+import 'package:flutter_trainin/demos/color_life_cycle_view.dart';
+import 'package:flutter_trainin/demos/my_collections_demos.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +31,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0),
       ),
-      home: StatefullLifeCycleLearn(message: 'VeliaBBB'),
+      home: NavigationLearn(),
     );
   }
 }
