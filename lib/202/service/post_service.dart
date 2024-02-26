@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_trainin/202/service/comment_model.dart';
 import 'package:flutter_trainin/202/service/post_model.dart';
 
 abstract class IPostService {
@@ -8,6 +9,7 @@ abstract class IPostService {
   Future<bool> putItemToService(PostModel postModel, int id);
   Future<bool> deleteItemToService(int id);
   Future<List<PostModel>?> fetchPostItemsAdvance();
+  Future<List<CommentModel>?> fetchRelatedCommentWithPostId(int postId);
 }
 
 class PostService implements IPostService {
@@ -66,6 +68,26 @@ class PostService implements IPostService {
     }
     return null;
   }
+
+  @override
+  Future<List<CommentModel>?> fetchRelatedCommentWithPostId(int postId) async {
+    try {
+      final response = await _dio.get(_PostServicePaths.comments.name,
+          queryParameters: {_PostQueryPaths.postId.name: postId});
+      if (response.statusCode == HttpStatus.ok) {
+        final _datas = response.data;
+
+        if (_datas is List) {
+          return _datas.map((e) => CommentModel.fromJson(e)).toList();
+        }
+      }
+    } catch (_) {
+      return null;
+    }
+    return null;
+  }
 }
 
 enum _PostServicePaths { posts, comments }
+
+enum _PostQueryPaths { postId }

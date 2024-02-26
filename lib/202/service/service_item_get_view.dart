@@ -95,13 +95,6 @@ class _PostCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.only(bottom: 20),
       child: ListTile(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => CommentLearnView(postId: _model?.id),
-            ),
-          );
-        },
         title: Text(_model?.title ?? ''),
         subtitle: Text(_model?.body ?? ''),
       ),
