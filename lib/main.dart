@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_trainin/101/image_learn.dart';
 import 'package:flutter_trainin/202/animated_learn_view.dart';
+import 'package:flutter_trainin/202/cache/shared_learn_cache.dart';
+import 'package:flutter_trainin/202/form_learn_view.dart';
+import 'package:flutter_trainin/202/oop_learn_view.dart';
+import 'package:flutter_trainin/202/state_manage/state_manage_learn_view.dart';
 
 import 'package:flutter_trainin/202/theme/light_theme.dart';
 
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
             elevation: 0),
       ),*/
           LightTheme().theme,
-      home: const AnimatedLearnView(),
+      home: const SharedLearn(),
     );
   }
 }

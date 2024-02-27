@@ -17,7 +17,6 @@ class _AnimatedLearnViewState extends State<AnimatedLearnView>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     controller =
         AnimationController(vsync: this, duration: _DurationItems.durationLow);
@@ -75,6 +74,22 @@ class _AnimatedLearnViewState extends State<AnimatedLearnView>
             color: Colors.blue,
             margin: const EdgeInsets.all(12),
           ),
+          Expanded(
+            child: Stack(
+              children: [
+                AnimatedPositioned(
+                    top: 20,
+                    curve: Curves.elasticOut,
+                    child: Text('Data'),
+                    duration: _DurationItems.durationLow)
+              ],
+            ),
+          ),
+          Expanded(
+            child: AnimatedList(itemBuilder: (context, index, animation) {
+              return const Text('data');
+            }),
+          )
         ],
       ),
     );
