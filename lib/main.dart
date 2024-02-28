@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_trainin/101/image_learn.dart';
+import 'package:flutter_trainin/202/alert_learn.dart';
 import 'package:flutter_trainin/202/animated_learn_view.dart';
 import 'package:flutter_trainin/202/cache/secure_context/secure_context_learn.dart';
 import 'package:flutter_trainin/202/cache/shared_learn_cache.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
             elevation: 0),
       ),*/
           LightTheme().theme,
-      home: const SheetLearn(),
+      home: const AlertLearn(),
     );
   }
 }
