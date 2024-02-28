@@ -1,6 +1,8 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
 import 'package:flutter_trainin/202/cache/shared_manager.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_trainin/202/cache/user_model.dart';
 
 class SharedLearn extends StatefulWidget {
   const SharedLearn({super.key});
@@ -12,11 +14,12 @@ class SharedLearn extends StatefulWidget {
 class _SharedLearnState extends LoadingStatefull<SharedLearn> {
   int _currentValue = 0;
   late final SharedManager _manager;
-
+  late final List<User> userItems;
   @override
   void initState() {
     super.initState();
     _manager = SharedManager();
+    userItems = UserItems().users;
     _initalze();
   }
 
@@ -60,10 +63,14 @@ class _SharedLearnState extends LoadingStatefull<SharedLearn> {
           _removeValue(),
         ],
       ),
-      body: TextField(
-        onChanged: (value) {
-          _onChangeValue(value);
-        },
+      body: Column(
+        children: [
+          TextField(
+            onChanged: (value) {
+              _onChangeValue(value);
+            },
+          ),
+        ],
       ),
     );
   }
@@ -88,6 +95,17 @@ class _SharedLearnState extends LoadingStatefull<SharedLearn> {
         changeLoading();
       }),
     );
+  }
+}
+
+class UserItems {
+  late final List<User> users;
+  UserItems() {
+    users = [
+      User('vb', '10', 'vb10.dev'),
+      User('vb2', '102', 'vb10.dev'),
+      User('vb3', '103', 'vb10.dev'),
+    ];
   }
 }
 
