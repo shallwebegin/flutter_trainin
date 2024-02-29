@@ -52,6 +52,23 @@ class MyApp extends StatelessWidget {
       ),*/
           context.watch<ThemeNotifier>().currentTheme,
       routes: NavigatorRoutes().items,
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) {
+            return const LottieLearn();
+          },
+        );
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/home') {
+          return MaterialPageRoute(
+            builder: (context) {
+              return const LottieLearn();
+            },
+          );
+        }
+        return null;
+      },
       //home: const LottieLearn(),
     );
   }

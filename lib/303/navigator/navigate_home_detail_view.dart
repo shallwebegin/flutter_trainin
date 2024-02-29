@@ -12,6 +12,7 @@ class _NavigateHomeDetailState extends State<NavigateHomeDetail> {
   @override
   void initState() {
     super.initState();
+
     Future.microtask(() {
       final _modelId = ModalRoute.of(context)?.settings.arguments;
 
