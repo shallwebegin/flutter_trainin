@@ -4,6 +4,7 @@ import 'package:flutter_trainin/202/cache/shared_learn_cache.dart';
 import 'package:flutter_trainin/303/reqrest_resource/model/resource_model.dart';
 import 'package:flutter_trainin/303/reqrest_resource/service/reqres_service.dart';
 import 'package:flutter_trainin/303/reqrest_resource/view/req_res_view.dart';
+import 'package:flutter_trainin/product/service/project_network_manager.dart';
 
 import '../../../product/service/project_dio.dart';
 
@@ -16,7 +17,8 @@ abstract class ReqresViewModel extends LoadingStatefull<ReqResView>
   @override
   void initState() {
     super.initState();
-    reqresService = ReqresService(service);
+    reqresService = ReqresService(ProjectNetworkManager.instance.service);
+    ProjectNetworkManager.instance.addBaseHeader('veli');
     _fetch();
   }
 

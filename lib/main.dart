@@ -2,11 +2,29 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_trainin/202/theme/light_theme.dart';
 import 'package:flutter_trainin/303/call_back_learn.dart';
+import 'package:flutter_trainin/303/feed_view.dart';
+import 'package:flutter_trainin/303/lottie_learn.dart';
+import 'package:flutter_trainin/303/navigator/navigate_home_view.dart';
 import 'package:flutter_trainin/303/reqrest_resource/view/req_res_view.dart';
 import 'package:flutter_trainin/303/tabbar_advance.dart';
+import 'package:flutter_trainin/product/constant/project_items.dart';
+import 'package:flutter_trainin/product/global/resource_context.dart';
+import 'package:flutter_trainin/product/global/theme_notifier.dart';
+import 'package:flutter_trainin/product/navigator/navigator_routes.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      Provider(
+        create: (_) => ResourceContext(),
+      ),
+      ChangeNotifierProvider<ThemeNotifier>(
+        create: (context) => ThemeNotifier(),
+      )
+    ],
+    builder: (context, child) => MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +33,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: ProjectItems.projectName,
       debugShowCheckedModeBanner: false,
       theme: /*ThemeData.dark().copyWith(
         tabBarTheme: const TabBarTheme(
@@ -32,8 +50,9 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0),
       ),*/
-          LightTheme().theme,
-      home: const ReqResView(),
+          context.watch<ThemeNotifier>().currentTheme,
+      routes: NavigatorRoutes().items,
+      //home: const LottieLearn(),
     );
   }
 }

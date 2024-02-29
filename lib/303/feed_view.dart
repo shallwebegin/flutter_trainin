@@ -29,7 +29,11 @@ class _FeedViewState extends State<FeedView>
       floatingActionButton: FloatingActionButton(onPressed: () {
         setState(() {});
       }),
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          ElevatedButton(onPressed: () {}, child: const Icon(Icons.save))
+        ],
+      ),
       body: _FeedFutureBuilder(itemsFuture: _itemsFuture),
     );
   }
