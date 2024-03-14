@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trainin/stateful/home_statefull_view.dart';
+import 'package:flutter_trainin/product/views/auth/login/login_view.dart';
 
 void main() {
   runApp(
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NillApp',
-      home: HomeStatefullView(),
+      home: LoginView(),
     );
   }
 }
